@@ -1,5 +1,5 @@
-import { SearchInput } from "./search-input"
-import { UserButton } from "./user-button"
+import { SearchInput } from "@/components/header/search-input"
+import { UserButton } from "@/components/header/user-button"
 
 export async function Header() {
   return (
