@@ -16,12 +16,15 @@ export const metadata: Metadata = {
   description: "Follow the development progress of our entire platform",
 }
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children, drawer }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${interFont.className} h-full`}>
       <body className="bg-navy-950 text-navy-50 antialiased">
         <ReactQueryProvider>
-          <NuqsAdapter>{children}</NuqsAdapter>
+          <NuqsAdapter>
+            {drawer}
+            {children}
+          </NuqsAdapter>
         </ReactQueryProvider>
       </body>
     </html>
