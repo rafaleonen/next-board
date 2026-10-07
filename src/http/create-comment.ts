@@ -1,6 +1,7 @@
 import "server-only"
 
 import { setTimeout } from "node:timers/promises"
+import { updateTag } from "next/cache"
 import { headers } from "next/headers"
 import { CommentSchema } from "@/api/routes/create-comment"
 import { clientEnv } from "@/client-env"
@@ -28,6 +29,8 @@ export async function createComment({ issueId, text }: CreateCommentParams) {
   })
 
   const data = await response.json()
+
+  updateTag(`issue-comments-${issueId}`)
 
   return CommentSchema.parse(data)
 }

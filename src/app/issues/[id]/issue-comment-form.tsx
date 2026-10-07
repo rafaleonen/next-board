@@ -32,6 +32,8 @@ export function IssueCommentForm({
 
   async function handleCreateComment(data: CreateCommentSchema) {
     onCreateComment(data.text)
+
+    reset()
   }
 
   return (
