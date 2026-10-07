@@ -7,6 +7,8 @@ interface GetIssueParams {
 }
 
 export async function getIssue({ id }: GetIssueParams) {
+  "use cache"
+
   await setTimeout(2000)
 
   const url = new URL(`/api/issues/${id}`, clientEnv.NEXT_PUBLIC_API_ENV)
