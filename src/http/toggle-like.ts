@@ -8,9 +8,14 @@ interface ToggleLikeParams {
 export async function toggleLike({ issueId }: ToggleLikeParams) {
   await new Promise((resolve) => setTimeout(resolve, 2000))
 
-  const url = new URL(`/api/issues/${issueId}`, clientEnv.NEXT_PUBLIC_API_ENV)
+  const url = new URL(
+    `/api/issues/${issueId}/like`,
+    clientEnv.NEXT_PUBLIC_API_ENV,
+  )
 
-  const response = await fetch(url)
+  const response = await fetch(url, {
+    method: "POST",
+  })
 
   const data = await response.json()
 

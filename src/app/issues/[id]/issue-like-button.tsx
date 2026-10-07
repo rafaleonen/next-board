@@ -19,7 +19,7 @@ export function IssueLikeButton({ issueId }: IssueLikeButtonProps) {
     return <Skeleton className="h-7 w-16" />
   }
 
-  const interaction = data?.interactions[0]
+  const interaction = data?.interactions?.[0]
 
   return (
     <LikeButton
